@@ -1,5 +1,6 @@
 package com.example.tallergrupo6.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText user, password;
-    private Button inicio, salir;
+    private Button inicio, salir, registrar;
     private TextView message;
 
     @Override
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         user = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         inicio = (Button) findViewById(R.id.inicio);
+        registrar = (Button) findViewById(R.id.registrar);
         salir = (Button) findViewById(R.id.salir);
         message = (TextView) findViewById((R.id.message));
         inicio.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pantallaRegistro = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(pantallaRegistro);
             }
         });
     }
